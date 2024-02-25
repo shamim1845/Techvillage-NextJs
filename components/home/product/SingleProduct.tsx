@@ -1,3 +1,5 @@
+import { MotionDiv } from "@/framer-motion/motion";
+import { fadeInVariants } from "@/framer-motion/variants";
 import { addToCart } from "@/redux/slice/cartSlice";
 import { ProductTypes } from "@/types";
 import Image from "next/image";
@@ -8,8 +10,9 @@ const SingleProduct = ({ product }: { product: ProductTypes }) => {
   const dispatch = useDispatch();
 
   return (
-    <div
-      className="border border-brand-primary/50 w-[160px] rounded-md space-y-2 cursor-pointer overflow-hidden"
+    <MotionDiv
+      variants={fadeInVariants}
+      className="border border-brand-primary/50 w-[160px] rounded-md space-y-2 cursor-pointer overflow-hidden hover:scale-105 transition-all"
       onClick={() => {
         dispatch(
           addToCart({
@@ -33,7 +36,7 @@ const SingleProduct = ({ product }: { product: ProductTypes }) => {
       <div className="border-t border-brand-primary/50 px-3 text-center">
         <h3>{product.title}</h3>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

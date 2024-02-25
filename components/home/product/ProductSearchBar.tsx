@@ -1,4 +1,6 @@
 "use client";
+import { MotionDiv } from "@/framer-motion/motion";
+import { sectionVariants } from "@/framer-motion/variants";
 import {
   addSearchKeyword,
   selectSearchKeyword,
@@ -22,7 +24,12 @@ const ProductSearchBar = () => {
   }, [debouncedKeyword, dispatch]);
 
   return (
-    <div className="shadow-md py-2">
+    <MotionDiv
+      variants={sectionVariants({ from: "top" })}
+      initial="hidden"
+      animate="visible"
+      className="shadow-md py-2"
+    >
       <div className="flex items-center px-5 ">
         <Search size={24} />
         <input
@@ -33,7 +40,7 @@ const ProductSearchBar = () => {
           className="font-normal p-3 bg-inherit border-none outline-none w-full text-black/90"
         />
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

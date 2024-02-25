@@ -1,14 +1,14 @@
 import CartDetails from "@/components/home/cart/CartDetails";
-import ProductDetails from "@/components/home/product/ProductDetails";
+import RenderComponent from "@/components/home/shared/RenderComponent";
 
 export default function Home() {
   return (
     <main className="text-brand-primary">
-      <div className="min-h-screen flex justify-between">
+      <div className="min-h-screen flex flex-col lg:flex-row gap-10 justify-between">
         {/* Cart details */}
         <CartDetails />
-        {/* Product List */}
-        <ProductDetails />
+
+        <RenderComponent />
       </div>
     </main>
   );

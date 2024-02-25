@@ -32,6 +32,7 @@ const useCalculateCartSummary = () => {
     shippingCost,
     discount,
     total,
+    productsCount: cartItems.length,
   };
 };
 

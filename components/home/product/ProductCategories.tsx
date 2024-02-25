@@ -6,16 +6,28 @@ import {
 } from "@/redux/slice/searchFilterSlice";
 import { MoreVertical } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
+import RightSideMenu from "../shared/RightSideMenu";
+import { useState } from "react";
+import { MotionButton, MotionDiv } from "@/framer-motion/motion";
+import { containerVariants, fadeInVariants } from "@/framer-motion/variants";
 
 const ProductCategories = ({ categories }: { categories: string[] }) => {
+  const [showSideNav, setShowSideNav] = useState(false);
+
   const activeCategory = useSelector(selectActiveCategories);
 
   const dispatch = useDispatch();
 
   return (
-    <div className="my-5 flex justify-between items-center">
+    <MotionDiv
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="my-5 flex justify-between items-center"
+    >
       <div className="flex flex-wrap gap-2">
-        <button
+        <MotionButton
+          variants={fadeInVariants}
           className={cn(
             "border-2 border-brand-primary/50 rounded-md px-3 py-1 transition-all",
             activeCategory === "All Categories" &&
@@ -30,10 +42,11 @@ const ProductCategories = ({ categories }: { categories: string[] }) => {
           }}
         >
           All Categories
-        </button>
+        </MotionButton>
 
         {categories.map((category) => (
-          <button
+          <MotionButton
+            variants={fadeInVariants}
             key={category}
             className={cn(
               "border-2 border-brand-primary/50 rounded-md px-3 py-1 transition-all",
@@ -48,14 +61,24 @@ const ProductCategories = ({ categories }: { categories: string[] }) => {
             }}
           >
             {category}
-          </button>
+          </MotionButton>
         ))}
       </div>
 
-      <div>
-        <MoreVertical />
-      </div>
-    </div>
+      <MotionDiv variants={fadeInVariants}>
+        <MoreVertical
+          onClick={() => {
+            setShowSideNav(true);
+          }}
+          className="cursor-pointer"
+        />
+        <RightSideMenu
+          showSideNav={showSideNav}
+          setShowSideNav={setShowSideNav}
+          categories={categories}
+        />
+      </MotionDiv>
+    </MotionDiv>
   );
 };
 

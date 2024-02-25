@@ -7,6 +7,8 @@ import {
   selectActiveCategories,
   selectSearchKeyword,
 } from "@/redux/slice/searchFilterSlice";
+import { MotionDiv } from "@/framer-motion/motion";
+import { containerVariants, sectionVariants } from "@/framer-motion/variants";
 
 const ProductList = ({ products }: { products: ProductTypes[] }) => {
   const activeCategory = useSelector(selectActiveCategories);
@@ -37,11 +39,16 @@ const ProductList = ({ products }: { products: ProductTypes[] }) => {
   }
 
   return (
-    <div className="flex flex-wrap gap-5 mb-10">
+    <MotionDiv
+      variants={sectionVariants({ from: "top" })}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-wrap gap-5 mb-10"
+    >
       {filteredProducts.map((product) => (
         <SingleProduct key={product.id} product={product} />
       ))}
-    </div>
+    </MotionDiv>
   );
 };
 
