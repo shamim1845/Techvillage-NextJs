@@ -34,7 +34,7 @@ const AddUser = () => {
       <Modal showModal={showModal} closeModal={closeModal}>
         <MotionDiv
           variants={fadeInVariants}
-          className="bg-white w-full max-w-[400px] p-12 rounded-md"
+          className="bg-white w-full max-w-[400px] p-12 rounded-md "
         >
           <div className="flex gap-16 mb-10">
             <ChevronLeft

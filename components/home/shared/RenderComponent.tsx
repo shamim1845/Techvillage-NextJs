@@ -1,5 +1,5 @@
 "use client";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 import PaymentDetails from "../payment/PaymentDetails";
 import ProductDetails from "../product/ProductDetails";

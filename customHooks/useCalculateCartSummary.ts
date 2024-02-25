@@ -18,6 +18,8 @@ const useCalculateCartSummary = () => {
       }, 0);
 
       setSubTotal(calcSubTotal);
+    } else {
+      setSubTotal(0);
     }
   }, [cartItems]);
 

@@ -1,5 +1,6 @@
 import CartDetails from "@/components/home/cart/CartDetails";
 import RenderComponent from "@/components/home/shared/RenderComponent";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -8,7 +9,9 @@ export default function Home() {
         {/* Cart details */}
         <CartDetails />
 
-        <RenderComponent />
+        <Suspense>
+          <RenderComponent />
+        </Suspense>
       </div>
     </main>
   );
