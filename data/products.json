@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "title": "Ash Polo",
+        "price": 20,
+        "category": "Men Fashion",
+        "image": "/products/1.png"
+    },
+    {
+        "id": 2,
+        "title": "Pure White Polo",
+        "price": 30,
+        "category": "Men Fashion",
+        "image": "/products/2.webp"
+    },   {
+        "id": 3,
+        "title": "Pure Red Polo",
+        "price": 33,
+        "category": "Men Fashion",
+        "image": "/products/3.png"
+    },
+    {
+        "id": 4,
+        "title": "Purple Polo",
+        "price": 35,
+        "category": "Men Fashion",
+        "image": "/products/4.jpeg"
+    }, 
+    {
+        "id": 5,
+        "title": "Pure Black Polo",
+        "price": 50,
+        "category": "Men Fashion",
+        "image": "/products/5.jpg"
+    }, 
+    {
+        "id": 6,
+        "title": "Grey Polo",
+        "price": 23,
+        "category": "Women Fashion",
+        "image": "/products/6.jpeg"
+    },
+    {
+        "id": 7,
+        "title": "Women blue Polo",
+        "price": 29,
+        "category": "Women Fashion",
+        "image": "/products/7.jpeg"
+    },
+    {
+        "id": 8,
+        "title": "White Polo",
+        "price": 19,
+        "category": "Women Fashion",
+        "image": "/products/8.webp"
+    },
+    {
+        "id": 9,
+        "title": "Baby White Polo",
+        "price": 15,
+        "category":  "Baby Fashion",
+        "image": "/products/9.webp"
+    },
+    {
+        "id": 10,
+        "title": "Black & White Polo",
+        "price": 32,
+        "category": "Women Fashion",
+        "image": "/products/10.png"
+    },
+    {
+        "id": 11,
+        "title": "Black Polo",
+        "price": 40,
+        "category": "Women Fashion",
+        "image": "/products/11.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Women Yellow Polo",
+        "price": 45,
+        "category": "Women Fashion",
+        "image": "/products/12.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Baby T-Shirt_1",
+        "price": 23,
+        "category": "Baby Fashion",
+        "image": "/products/13.png"
+    },
+    {
+        "id": 14,
+        "title": "Baby T-Shirt_2",
+        "price": 23,
+        "category":  "Baby Fashion",
+        "image": "/products/14.png"
+    },
+    {
+        "id": 15,
+        "title": "Baby White T-Shirt",
+        "price": 22,
+        "category": "Baby Fashion",
+        "image": "/products/15.jpg"
+    }
+]
