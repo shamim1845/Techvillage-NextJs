@@ -21,7 +21,7 @@ const PaymentDetails = () => {
       animate="visible"
       className="flex-1 bg-[#F4F6F8] p-5 border-l border-b-1 border-brand-primary/50 space-y-5"
     >
-      <div className="flex justify-between p-5 rounded-md cursor-pointer border border-brand-primary/50">
+      <div className="flex justify-between p-5 rounded-md border border-brand-primary/50">
         <div className="flex-1 flex gap-3 justify-between items-center ">
           <span className="">Order Amount</span>
           <div className="font-bold text-2xl text-black">

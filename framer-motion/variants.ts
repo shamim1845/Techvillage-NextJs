@@ -58,32 +58,42 @@ export const modalVariants = {
     transition: {
       type: "spring",
       staggerChildren: 0.01,
+      stiffness: 80,
+      mass: 0.7,
     },
   },
 };
 
-export const leftSideVariants = (showSideNav: boolean) => ({
-  visible: {
+export const rightSideVariants = (showSideNav: boolean) => ({
+  visible: (width: number = 5000) => ({
     opacity: 1,
-    x: showSideNav ? 0 : -10000,
+    x: showSideNav ? 0 : width * 2 + 200,
     transition: {
-      type: "spring",
       staggerChildren: 0.01,
-      stiffness: 70,
-      mass: 0.6,
+      type: "spring",
+      stiffness: 80,
+      mass: 0.5,
+      restDelta: 2,
     },
-  },
+  }),
 });
 
-export const rightSideVariants = (showSideNav: boolean) => ({
-  visible: {
-    opacity: 1,
-    x: showSideNav ? 0 : 10000,
+export const leftSideVariants = {
+  open: (height: number = 5000) => ({
+    clipPath: `circle(${height * 2 + 500}px at -40px -40px)`,
     transition: {
       type: "spring",
-      staggerChildren: 0.01,
-      stiffness: 70,
-      mass: 0.6,
+      stiffness: 80,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: "circle(30px at -40px -40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
     },
   },
-});
+};

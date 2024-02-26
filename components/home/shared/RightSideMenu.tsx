@@ -1,10 +1,5 @@
 "use client";
-import { Banknote, LayoutDashboard, MapPin, Settings, X } from "lucide-react";
-import Image from "next/image";
 import React from "react";
-import Logo from "@/public/logo.png";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,6 +8,8 @@ import {
 } from "@/redux/slice/searchFilterSlice";
 import { MotionDiv } from "@/framer-motion/motion";
 import { rightSideVariants } from "@/framer-motion/variants";
+import dynamic from "next/dynamic";
+import { X } from "lucide-react";
 
 interface RightSideMenuProps {
   showSideNav: boolean;
@@ -20,7 +17,7 @@ interface RightSideMenuProps {
   categories: string[];
 }
 
-const RightSideMenu = ({
+const NoSSRRightSideMenu = ({
   showSideNav,
   setShowSideNav,
   categories,
@@ -33,6 +30,7 @@ const RightSideMenu = ({
     <MotionDiv
       variants={rightSideVariants(showSideNav)}
       animate="visible"
+      custom={window.innerWidth}
       className={cn("fixed top-0 left-0 right-0 bottom-0 flex z-50")}
     >
       <div
@@ -87,28 +85,8 @@ const RightSideMenu = ({
   );
 };
 
+const RightSideMenu = dynamic(() => Promise.resolve(NoSSRRightSideMenu), {
+  ssr: false,
+});
+
 export default RightSideMenu;
-
-interface MenuItemProps {
-  icon: React.ReactNode;
-  text: string;
-  link: string;
-}
-
-const MenuItem = ({ icon, text, link }: MenuItemProps) => {
-  const pathname = usePathname();
-
-  return (
-    <div
-      className={cn(
-        "flex gap-3 items-center px-5 py-3 hover:bg-brand-secondary/20 hover:text-brand-secondary transition-all cursor-pointer",
-        pathname === link && "text-brand-secondary bg-brand-secondary/20"
-      )}
-    >
-      <div>{icon}</div>
-      <div>
-        <Link href={link}>{text}</Link>
-      </div>
-    </div>
-  );
-};

@@ -8,18 +8,23 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { MotionDiv } from "@/framer-motion/motion";
 import { leftSideVariants } from "@/framer-motion/variants";
+import dynamic from "next/dynamic";
 
 interface LeftSideMenuProps {
   showSideNav: boolean;
   setShowSideNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LeftSideMenu = ({ showSideNav, setShowSideNav }: LeftSideMenuProps) => {
+const NoSSRLeftSideMenu = ({
+  showSideNav,
+  setShowSideNav,
+}: LeftSideMenuProps) => {
   return (
     <MotionDiv
-      variants={leftSideVariants(showSideNav)}
-      initial="hidden"
-      animate="visible"
+      variants={leftSideVariants}
+      initial={false}
+      animate={showSideNav ? "open" : "closed"}
+      custom={window.innerHeight}
       className={cn("fixed top-0 left-0 right-0 bottom-0 flex")}
     >
       <div className="w-full max-w-[300px] bg-white relative">
@@ -58,6 +63,10 @@ const LeftSideMenu = ({ showSideNav, setShowSideNav }: LeftSideMenuProps) => {
     </MotionDiv>
   );
 };
+
+const LeftSideMenu = dynamic(() => Promise.resolve(NoSSRLeftSideMenu), {
+  ssr: false,
+});
 
 export default LeftSideMenu;
 
